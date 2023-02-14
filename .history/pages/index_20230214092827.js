@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link';
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -13,9 +12,8 @@ export default function Home() {
 
   const getTechTransferData = async() => {
     const res = await axios.get(url);
-    const info = await res.data;
-    console.log(info);
-    setData(info);
+    const data = await res.data;
+    console.log(data);
   }
 
   useEffect(() => {
@@ -31,25 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Link href="/polychromatic">Polychromatic</Link>
 
-        {
-          data && data.results.map((tech, index) => {
-            return (
-              <div key={index}>
-                {
-                  tech && tech.map((t, ind) => {
-                    if(ind === 10) {
-                      return (
-                        <Image src={t} alt={tech} key={ind} width={100} height={100}/>
-                      )
-                    }
-                  })
-                }
-              </div>
-            )
-          })
-        }
       </main>
     </>
   )

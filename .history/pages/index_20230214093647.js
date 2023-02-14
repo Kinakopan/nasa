@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link';
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -31,8 +30,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Link href="/polychromatic">Polychromatic</Link>
-
         {
           data && data.results.map((tech, index) => {
             return (
