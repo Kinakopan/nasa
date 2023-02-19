@@ -30,13 +30,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Link href="/polychromatic">Polychromatic</Link>
+      <main
+        className={`${styles.main} ${styles.main_home} ${styles.bgImg}`}>
+        <Link
+          href="/polychromatic"
+          className={styles.heading1}>
+            Polychromatic
+        </Link>
 
-        {
-          data && data.results.map((tech, index) => {
+        <div className={styles.imgCont}>
+          {data && data.results.map((tech, index) => {
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className={styles.imgBox}
+                >
                 {
                   tech && tech.map((t, ind) => {
                     if(ind === 10) {
@@ -48,8 +56,8 @@ export default function Home() {
                 }
               </div>
             )
-          })
-        }
+          })}
+        </div>
       </main>
     </>
   )
