@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from '@/styles/Home.module.css'
 import axios from "axios";
 import Image from "next/image";
 
@@ -56,45 +57,89 @@ export default function Polychromatic() {
 
   return (
     <>
-      Polychromatic
-      <Image src={image} alt={image} width={200} height={200}/>
-      <div>{time}</div>
-      <div>{coords[0]}, {coords[1]}</div>
+      <main className={`${styles.main} ${styles.main_polychromatic}`}>
+        <div className={styles.bgImgCont}>
+          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+        </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>Image</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            images.map((e, i) => {
-              return(
-                <tr key={i}>
-                  <td>{e.time}</td>
-                  <td>{e.coords.lat}</td>
-                  <td>{e.coords.lon}</td>
-                  <td><Image src={e.image} alt={i} width={200} height={200}/></td>
-                  <td>
-                    <button onClick={() => {
-                      setImage(e.image);
-                      setTime(e.time);
-                      setCoords([e.coords.lat, e.coords.lon])
-                      console.log(images[i].image)
-                      document.body.scrollIntoView();
-                    }}>View</button>
-                  </td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+        <h1
+          href="/polychromatic"
+          className={styles.heading1}>
+            Polychromatic
+        </h1>
+        <ul className={styles.item_list}>
+          <li>{time}</li>
+          <li>{coords[0]}</li>
+          <li>{coords[1]}</li>
+          <li className={styles.item_image}>
+            <Image
+              className={styles.imageShadow}
+              src={image}
+              alt={image}
+              width={200}
+              height={200}/>
+          </li>
+          <li>
+            <p className={styles.btnDesciption}>
+              Click View down below. See the result on the left.
+            </p>
+            <button className={styles.btn}>
+              View
+            </button>
+          </li>
+        </ul>
+
+        <table className={styles.item_cont}>
+          <thead className={styles.thread}>
+            <tr className={styles.item_list}>
+              <th>Time</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th className={styles.item_image}>Image</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody className={styles.tbody}>
+            {
+              images.map((e, i) => {
+                return(
+                  <tr
+                    key={i}
+                    className={styles.item_list}
+                    >
+                    <td>{e.time}</td>
+                    <td>{e.coords.lat}</td>
+                    <td>{e.coords.lon}</td>
+                    <td className={styles.item_image}>
+                      <Image
+                        className={styles.imageShadow}
+                        src={e.image}
+                        alt={i}
+                        width={200}
+                        height={200}/>
+                    </td>
+                    <td>
+                      <button
+                        className={styles.btn}
+                        onClick={() => {
+                          setImage(e.image);
+                          setTime(e.time);
+                          setCoords([e.coords.lat, e.coords.lon])
+                          console.log(images[i].image)
+                          document.body.scrollIntoView();
+                        }}>View</button>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </table>
+      </main>
     </>
   )
 }

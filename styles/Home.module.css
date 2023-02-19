@@ -8,27 +8,30 @@
   line-height: 1.5;
   box-sizing: border-box;
   font-family: var(--font-mono);
+  color: white;
+  text-shadow: 0px 0px 2px black;
+  overflow: hidden;
 }
 
 .bgImg,
 .main_home::after {
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 /* ===== Home PAGE ===== */
 .main_home {
   background-image: url('/img/rocket.jpg');
+  background-position: center;
   position: relative;
-  z-index: 0;
 }
 
 .main_home::after {
   content: '';
   display: block;
   background-image: url('/img/earth3.jpg');
-  background-position: top center;
   opacity: .5;
   position: absolute;
   top: 0;
@@ -41,20 +44,22 @@
 .heading1 {
   font-size: 6rem;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 3rem;
   text-align: center;
   line-height: 0;
   padding: 5rem;
   box-shadow: 0px 0px 5px 5px black;
-  color: #e4e4e4;
-  text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #fffb00ab, -6px -7px 0 #000;
+  z-index: 2;
+  color: #105bd8;
+  /* text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #fffb00ab, -6px -7px 0 #000; */
+  text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #dd361c, -6px -7px 0 #aeb0b5;
 }
 
-.heading1:hover {
+.main_home .heading1:hover {
   margin-top: .3rem;
   box-shadow: inset 0px 0px 15px 10px #fffb00ab;
   background: #fffb0026;
-  border: 1px solid #fffb0026;
+  border: 1px solid #fffb0078;
 }
 
 .imgCont {
@@ -67,12 +72,122 @@
   overflow: scroll;
 }
 
-.imgBox {
-
+/* ===== Polychromatic PAGE ===== */
+.main_polychromatic {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
 }
 
+.main_polychromatic .heading1 {
+  box-shadow: none;
+}
 
+.btnDesciption {
+  font-size: .9rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
 
+.bgImgCont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+}
 
+.bgImgCont::after {
+  content: '';
+  display: block;
+  background: #00000060;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-/* ===== Polychromatic PAGE ===== */
+.polyBg {
+  width: 100%;
+  padding-top: 90%;
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+}
+.polyBg:nth-child(1) {
+  background-image: url('/img/astronaut5.jpg');
+}
+.polyBg:nth-child(2) {
+  background-image: url('/img/earth3.jpg');
+}
+.polyBg:nth-child(3) {
+  background-image: url('/img/satellite4.jpg');
+}
+/* .polyBg:nth-child(4) {
+  background-image: url('/img/satellite4.jpg');
+} */
+
+.imageShadow {
+  box-shadow: 0px 0px 60px 35px black;
+}
+
+.item_cont {
+  width: 100%;
+}
+
+.item_list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.thread .item_list {
+  background: #0b3d91;
+  line-height: 3rem;
+  margin: 4rem 0;
+  z-index: 2;
+  position: relative;
+}
+
+.item_list > * {
+  width: 10rem;
+  text-align: center;
+}
+
+.item_image {
+  flex: 1;
+}
+
+.tbody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #0b3d91;
+  border: 1px solid #0b3d91;
+}
+
+.btn:hover {
+  margin-top: .1rem;
+  background: transparent;
+  box-shadow: inset 0px 0px 10px 5px #fffb00ab;
+  border: none;
+}

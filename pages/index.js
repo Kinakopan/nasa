@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react';
+import styles from '@/styles/Home.module.css'
+import axios from 'axios';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
-import styles from '@/styles/Home.module.css'
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 export default function Home() {
   const [data, setData] = useState();
