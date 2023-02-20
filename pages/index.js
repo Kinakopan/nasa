@@ -6,6 +6,9 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 export default function Home() {
+
+  var name = process.env.NEXT_PUBLIC_NAME;
+
   const [data, setData] = useState();
 
   const apiKey = "g3pY1Tdptf741ASB2RGAcEStDHNcWE3lqJUZlQSe";
@@ -32,6 +35,8 @@ export default function Home() {
       </Head>
       <main
         className={`${styles.main} ${styles.main_home}`}>
+
+          {name}
 
         <div className={styles.bg}></div>
 
