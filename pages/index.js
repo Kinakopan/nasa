@@ -37,7 +37,7 @@ export default function Home() {
       <main
         className={`${styles.main} ${styles.main_home}`}>
 
-          {name}
+          {/* {name} */}
 
         <div className={styles.bg}></div>
 
