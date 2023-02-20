@@ -13,7 +13,7 @@ export default function Home() {
 
   const apiKey = process.env.API_KEY;
 
-  const url = `https://api.nasa.gov/techtransfer/patent/?q=10&engine&api_key=${apiKey}` //q = quantity
+  const url = `https://api.nasa.gov/techtransfer/patent/?q=10&engine&api_key=${apiKey}`
 
   const getTechTransferData = async() => {
     const res = await axios.get(url);
