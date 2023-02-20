@@ -7,11 +7,12 @@ import Link from 'next/link';
 
 export default function Home() {
 
-  var name = process.env.NEXT_PUBLIC_NAME;
+  // var name = process.env.NEXT_PUBLIC_NAME;
 
   const [data, setData] = useState();
 
-  const apiKey = "g3pY1Tdptf741ASB2RGAcEStDHNcWE3lqJUZlQSe";
+  const apiKey = process.env.API_KEY;
+
   const url = `https://api.nasa.gov/techtransfer/patent/?q=10&engine&api_key=${apiKey}` //q = quantity
 
   const getTechTransferData = async() => {
