@@ -182,7 +182,6 @@
 }
 
 .btn {
-  cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   border: none;
@@ -190,7 +189,11 @@
   border: 1px solid #0b3d91;
 }
 
-.btn:hover {
+.item_cont .btn {
+  cursor: pointer;
+}
+
+.item_cont .btn:hover {
   margin-top: .1rem;
   background: transparent;
   box-shadow: inset 0px 0px 10px 5px #fffb00ab;
