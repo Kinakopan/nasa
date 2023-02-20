@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Home.module.css'
 import axios from "axios";
 import Image from "next/image";
@@ -9,6 +9,22 @@ export default function Polychromatic() {
   const [time, setTime] = useState('Loading');
   const [date, setDate] = useState('');
   const [coords, setCoords] = useState({});
+  const [numRepeats, setNumRepeats] = useState(0);
+
+  //I get "not defined" and couldn't figure this out so I'd like to ask about this after the class.
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const element = document.querySelector(`${styles.main}`);
+  //     if (element) {
+  //       const windowHeight = document.innerHeight;
+  //       const elementHeight = element.clientHeight;
+  //       setNumRepeats(Math.ceil(windowHeight / elementHeight));
+  //       console.log('success')
+  //     } else {
+  //       console.log('not defined')
+  //     }
+  //   }
+  // }, []);
 
   const apiKey = "g3pY1Tdptf741ASB2RGAcEStDHNcWE3lqJUZlQSe";
   const url = `https://epic.gsfc.nasa.gov/api/natural?api_key=${apiKey}`
@@ -58,7 +74,8 @@ export default function Polychromatic() {
   return (
     <>
       <main className={`${styles.main} ${styles.main_polychromatic}`}>
-        <div className={styles.bgImgCont}>
+        <div className={styles.bg}></div>
+        <div className={`${styles.bgImgCont} ${styles.pc_display}`}>
           <span className={styles.polyBg}></span>
           <span className={styles.polyBg}></span>
           <span className={styles.polyBg}></span>
@@ -72,9 +89,9 @@ export default function Polychromatic() {
             Polychromatic
         </h1>
         <ul className={`${styles.item_list} ${styles.item_list_ul}`}>
-          <li>{time}</li>
-          <li>{coords[0]}</li>
-          <li>{coords[1]}</li>
+          <li><span className={styles.sp_display}>Time: </span>{time}</li>
+          <li><span className={styles.sp_display}>Latitude: </span>{coords[0]}</li>
+          <li><span className={styles.sp_display}>Longitude: </span>{coords[1]}</li>
           <li className={`${styles.item_image} ${styles.item_imageShadow}`}>
             <Image
               className={styles.earthImg}
@@ -83,9 +100,9 @@ export default function Polychromatic() {
               width={200}
               height={200}/>
           </li>
-          <li>
+          <li className={styles.pc_display_block}>
             <p className={styles.description}>
-              Click View down below. See the result on the left.
+              Click "View" down below. See the result on the left.
             </p>
             <button className={styles.btn}>
               View
@@ -101,6 +118,9 @@ export default function Polychromatic() {
               <th>Longitude</th>
               <th className={styles.item_image}>Image</th>
               <th>View</th>
+              <th className={styles.sp_display}>
+                Click "View" down below.<br/>See the result on the top.
+              </th>
             </tr>
           </thead>
           <tbody className={styles.tbody}>
@@ -111,9 +131,9 @@ export default function Polychromatic() {
                     key={i}
                     className={styles.item_list}
                     >
-                    <td>{e.time}</td>
-                    <td>{e.coords.lat}</td>
-                    <td>{e.coords.lon}</td>
+                    <td><span className={styles.sp_display}>Time: </span>{e.time}</td>
+                    <td><span className={styles.sp_display}>Latitude: </span>{e.coords.lat}</td>
+                    <td><span className={styles.sp_display}>Longitude: </span>{e.coords.lon}</td>
                     <td className={`${styles.item_image} ${styles.item_imageShadow}`}>
                       <Image
                         className={styles.earthImg}
@@ -122,7 +142,7 @@ export default function Polychromatic() {
                         width={200}
                         height={200}/>
                     </td>
-                    <td>
+                    <td className={styles.td_btn}>
                       <button
                         className={styles.btn}
                         onClick={() => {

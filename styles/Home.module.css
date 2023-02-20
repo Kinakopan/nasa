@@ -2,7 +2,8 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 2rem;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
@@ -14,19 +15,30 @@
   overflow: hidden;
   position: relative;
 }
+@media (max-width: 767px) {
+  .main {
+    padding: 1rem 1rem 3rem;
+  }
+}
 
 .heading1 {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 700;
   margin: 0 0 3rem;
   text-align: center;
   line-height: 0;
-  padding: 5rem;
+  padding: 3rem;
   box-shadow: 0px 0px 5px 5px black;
   z-index: 2;
   color: #105bd8;
-  /* text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #fffb00ab, -6px -7px 0 #000; */
   text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #dd361c, -6px -7px 0 #aeb0b5;
+}
+@media (max-width: 767px) {
+  .heading1 {
+    font-size: 2.5rem;
+    padding: 2.5rem;
+    margin-bottom: .3rem;
+  }
 }
 
 .description {
@@ -41,16 +53,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/img/home/rocket.jpg');
   z-index: 0;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left top;
-  background-size: 150%;
   z-index: -1;
 }
+.main_home .bg {
+  background-image: url('/img/home/rocket.jpg');
+  background-position: left top;
+  background-size: cover;
+}
+@media (max-width: 767px) {
+  .main_home .bg {
+    background-position: left bottom;
+    background-size: 200%;
+  }
+}
 
-.bg::after {
+.main_home .bg::after {
   content: '';
   display: block;
   background-image: url('/img/home/earth2.jpg');
@@ -74,6 +94,11 @@
   background: #fffb0026;
   border: 1px solid #fffb0078;
 }
+@media (max-width: 767px) {
+  .main_home .heading1:hover {
+    margin-bottom: 0;
+  }
+}
 
 .imgCont {
   display: flex;
@@ -84,19 +109,24 @@
   height: 15rem;
   overflow: scroll;
 }
+@media (max-width: 767px) {
+  .imgCont {
+    height: 37rem;
+  }
+}
 
 /* ===== Polychromatic PAGE ===== */
 .main_polychromatic {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
 }
 
-.main_polychromatic .heading1 {
-  box-shadow: none;
+@media (max-width: 767px) {
+  .main_polychromatic .bg {
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url("/img/polychromatic/astronaut5.jpg");
+  }
 }
 
 .bgImgCont {
@@ -131,6 +161,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 .polyBg:nth-child(1) {
   background-image: url('/img/polychromatic/astronaut5.jpg');
 }
@@ -144,6 +175,10 @@
   background-image: url('/img/polychromatic/satellite4.jpg');
 }
 
+.main_polychromatic .heading1 {
+  box-shadow: none;
+}
+
 .item_list {
   list-style: none;
   display: flex;
@@ -152,6 +187,27 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 767px) {
+  .item_list {
+    flex-direction: column;
+  }
+  .thread .item_list > *:nth-child(-n+5) {
+    display: none;
+  }
+  .tbody .item_list:nth-child(n+2) {
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .item_list_ul .sp_display,
+  .tbody .sp_display {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    width: 6rem;
+  }
+}
 
 .item_list_ul .item_image,
 .tbody .item_image {
@@ -159,12 +215,20 @@
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0px 0px 20px 10px black;
-  margin: 1.5rem;
+  margin: 2rem;
 }
 
 .item_list > * {
   width: 18%;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .item_list > * {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
 .item_image {
@@ -177,8 +241,14 @@
   transform: scale(1.2);
 }
 
-.item_list_ul .description {
+.pc_display_block .description {
   margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .tbody .td_btn {
+    justify-content: center;
+  }
 }
 
 .btn {
@@ -187,6 +257,10 @@
   border: none;
   background: #0b3d91;
   border: 1px solid #0b3d91;
+}
+
+.item_cont {
+  width: 100%;
 }
 
 .item_cont .btn {
@@ -200,10 +274,6 @@
   border: none;
 }
 
-.item_cont {
-  width: 100%;
-}
-
 .thread .item_list {
   background: #0b3d91;
   line-height: 3rem;
@@ -212,10 +282,48 @@
   position: relative;
 }
 
+.sp_item_list {
+  display: none;
+}
+@media (max-width: 767px) {
+  .sp_item_list {
+    display: flex;
+  }
+  .thread .sp_display {
+    width: 100%;
+    display: block;
+    line-height: 2;
+    padding: 1rem;
+  }
+}
+
 .tbody {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+.pc_display {
+  display: flex;
+}
+.pc_display_block {
+  display: block;
+}
+@media (max-width: 767px) {
+  .pc_display,
+  .pc_display_block {
+    display: none;
+  }
+}
+
+.sp_display {
+  display: none;
+}
+@media (max-width: 767px) {
+  .sp_display {
+    display: flex;
+  }
 }
