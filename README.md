@@ -1,7 +1,7 @@
 ### NASA EPIC App
 
 ## Description
-This is a Next.js app built using the NASA APIs available at https://api.nasa.gov/.
+This is a Next.js app built using the NASA APIs available at https://api.nasa.gov/. The app can be adjusted to fit various screen sizes, including mobile, tablet, and PC screens.
 
 ## Tools/Languages Used
 
