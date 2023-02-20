@@ -59,11 +59,11 @@ export default function Polychromatic() {
     <>
       <main className={`${styles.main} ${styles.main_polychromatic}`}>
         <div className={styles.bgImgCont}>
-          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
-          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
-          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
-          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
-          <span className={`${styles.polyBg} ${styles.bgImg}`}></span>
+          <span className={styles.polyBg}></span>
+          <span className={styles.polyBg}></span>
+          <span className={styles.polyBg}></span>
+          <span className={styles.polyBg}></span>
+          <span className={styles.polyBg}></span>
         </div>
 
         <h1
@@ -71,20 +71,20 @@ export default function Polychromatic() {
           className={styles.heading1}>
             Polychromatic
         </h1>
-        <ul className={styles.item_list}>
+        <ul className={`${styles.item_list} ${styles.item_list_ul}`}>
           <li>{time}</li>
           <li>{coords[0]}</li>
           <li>{coords[1]}</li>
-          <li className={styles.item_image}>
+          <li className={`${styles.item_image} ${styles.item_imageShadow}`}>
             <Image
-              className={styles.imageShadow}
+              className={styles.earthImg}
               src={image}
               alt={image}
               width={200}
               height={200}/>
           </li>
           <li>
-            <p className={styles.btnDesciption}>
+            <p className={styles.description}>
               Click View down below. See the result on the left.
             </p>
             <button className={styles.btn}>
@@ -114,9 +114,9 @@ export default function Polychromatic() {
                     <td>{e.time}</td>
                     <td>{e.coords.lat}</td>
                     <td>{e.coords.lon}</td>
-                    <td className={styles.item_image}>
+                    <td className={`${styles.item_image} ${styles.item_imageShadow}`}>
                       <Image
-                        className={styles.imageShadow}
+                        className={styles.earthImg}
                         src={e.image}
                         alt={i}
                         width={200}
@@ -130,7 +130,7 @@ export default function Polychromatic() {
                           setTime(e.time);
                           setCoords([e.coords.lat, e.coords.lon])
                           console.log(images[i].image)
-                          document.body.scrollIntoView();
+                          document.body.scrollIntoView({ behavior: "smooth" });
                         }}>View</button>
                     </td>
                   </tr>

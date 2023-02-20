@@ -31,12 +31,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`${styles.main} ${styles.main_home} ${styles.bgImg}`}>
+        className={`${styles.main} ${styles.main_home}`}>
+
+        <div className={styles.bg}></div>
+
         <Link
           href="/polychromatic"
           className={styles.heading1}>
             Polychromatic
         </Link>
+
+        <p className={styles.description}>Scroll to see more images</p>
 
         <div className={styles.imgCont}>
           {data && data.results.map((tech, index) => {

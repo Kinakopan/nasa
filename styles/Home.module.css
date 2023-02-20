@@ -1,3 +1,4 @@
+/* ===== COMMON ===== */
 .main {
   display: flex;
   flex-direction: column;
@@ -11,34 +12,7 @@
   color: white;
   text-shadow: 0px 0px 2px black;
   overflow: hidden;
-}
-
-.bgImg,
-.main_home::after {
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
-
-/* ===== Home PAGE ===== */
-.main_home {
-  background-image: url('/img/rocket.jpg');
-  background-position: center;
   position: relative;
-}
-
-.main_home::after {
-  content: '';
-  display: block;
-  background-image: url('/img/earth3.jpg');
-  opacity: .5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
 }
 
 .heading1 {
@@ -55,8 +29,47 @@
   text-shadow: black 2px 0px 2px, black -2px 0px 2px, black 0px -2px 2px, black -2px 0px 2px, black 2px 2px 2px, black -2px 2px 2px, black 2px -2px 2px, black -2px -2px 2px, black 1px 2px 2px, black -1px 2px 2px, black 1px -2px 2px, black -1px -2px 2px, black 2px 1px 2px, black -2px 1px 2px, black 2px -1px 2px, black -2px -1px 2px, black 1px 1px 2px, black -1px 1px 2px, black 1px -1px 2px, black -1px -1px 2px, 6px 7px 0 #dd361c, -6px -7px 0 #aeb0b5;
 }
 
+.description {
+  text-align: left;
+}
+
+/* ===== Home PAGE ===== */
+.bg {
+  filter: blur(2px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/home/rocket.jpg');
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 150%;
+  z-index: -1;
+}
+
+.bg::after {
+  content: '';
+  display: block;
+  background-image: url('/img/home/earth2.jpg');
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 .main_home .heading1:hover {
   margin-top: .3rem;
+  margin-bottom: 2.55rem;
   box-shadow: inset 0px 0px 15px 10px #fffb00ab;
   background: #fffb0026;
   border: 1px solid #fffb0078;
@@ -86,13 +99,8 @@
   box-shadow: none;
 }
 
-.btnDesciption {
-  font-size: .9rem;
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
 .bgImgCont {
+  filter: blur(2px);
   position: absolute;
   top: 0;
   left: 0;
@@ -117,29 +125,23 @@
 .polyBg {
   width: 100%;
   padding-top: 90%;
+  z-index: 0;
   background-size: cover;
   background-position: center 30%;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .polyBg:nth-child(1) {
-  background-image: url('/img/astronaut5.jpg');
+  background-image: url('/img/polychromatic/astronaut5.jpg');
 }
 .polyBg:nth-child(2) {
-  background-image: url('/img/earth3.jpg');
+  background-image: url('/img/polychromatic/bg1.jpg');
 }
 .polyBg:nth-child(3) {
-  background-image: url('/img/satellite4.jpg');
+  background-image: url('/img/polychromatic/earth3.jpg');
 }
-/* .polyBg:nth-child(4) {
-  background-image: url('/img/satellite4.jpg');
-} */
-
-.imageShadow {
-  box-shadow: 0px 0px 60px 35px black;
-}
-
-.item_cont {
-  width: 100%;
+.polyBg:nth-child(4) {
+  background-image: url('/img/polychromatic/satellite4.jpg');
 }
 
 .item_list {
@@ -151,16 +153,17 @@
   align-items: center;
 }
 
-.thread .item_list {
-  background: #0b3d91;
-  line-height: 3rem;
-  margin: 4rem 0;
-  z-index: 2;
-  position: relative;
+.item_list_ul .item_image,
+.tbody .item_image {
+  font-size: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 10px black;
+  margin: 1.5rem;
 }
 
 .item_list > * {
-  width: 10rem;
+  width: 18%;
   text-align: center;
 }
 
@@ -168,12 +171,14 @@
   flex: 1;
 }
 
-.tbody {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.earthImg {
   width: 100%;
-  height: 100%;
+  height: auto;
+  transform: scale(1.2);
+}
+
+.item_list_ul .description {
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -190,4 +195,24 @@
   background: transparent;
   box-shadow: inset 0px 0px 10px 5px #fffb00ab;
   border: none;
+}
+
+.item_cont {
+  width: 100%;
+}
+
+.thread .item_list {
+  background: #0b3d91;
+  line-height: 3rem;
+  margin: 4rem 0;
+  z-index: 2;
+  position: relative;
+}
+
+.tbody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
