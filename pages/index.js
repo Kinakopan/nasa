@@ -4,6 +4,7 @@ import axios from 'axios';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
 

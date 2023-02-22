@@ -11,7 +11,7 @@ export default function Polychromatic() {
   const [coords, setCoords] = useState({});
   const [numRepeats, setNumRepeats] = useState(0);
 
-  //I get "not defined" and couldn't figure this out so I'd like to ask about this after the class.
+  // I get "not defined" and couldn't figure this out so I'd like to ask about this after the class.
   // useEffect(() => {
   //   if (typeof window !== "undefined") {
   //     const element = document.querySelector(`${styles.main}`);
