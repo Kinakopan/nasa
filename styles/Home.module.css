@@ -48,7 +48,6 @@
 
 /* ===== Home PAGE ===== */
 .bg {
-  filter: blur(2px);
   position: absolute;
   top: 0;
   left: 0;
@@ -60,7 +59,7 @@
   z-index: -1;
 }
 .main_home .bg {
-  background-image: url('/img/home/rocket.jpg');
+  background-image: url('/img/home/galaxy.jpg');
   background-position: left top;
   background-size: cover;
 }
@@ -89,9 +88,8 @@
 }
 
 .main_home .heading1:hover {
-    background: #105bd8;
-    border-color: transparent;
-    filter: hue-rotate(270deg);
+  background: #00000073;
+  border-color: #ffff07;
 }
 
 
@@ -168,6 +166,10 @@
 }
 .polyBg:nth-child(4) {
   background-image: url('/img/polychromatic/satellite4.jpg');
+}
+
+.main_polychromatic {
+  /* border: none; */
 }
 
 .item_list {
